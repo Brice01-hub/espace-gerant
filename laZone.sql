@@ -29,6 +29,12 @@ Create table louer
     date_location DATE NOT NULL,
     date_retour DATE NOT NULL,
     id_location INT(20),
+    PRIMARY key(id_louer),
+     foreign key (id_joueur) references client(id_client),
+    FOREIGN key (id_location) REFERENCES liste_location(id_location)
+);
+CREATE TABLE liste_location(
+    id_location int(20) NOT null ,
     id_equipement1 INT(20) NOT NULL,
     id_equipement2 INT(20) NOT NULL,
     id_equipement3 INT(20) NOT NULL,
@@ -41,13 +47,6 @@ Create table louer
     id_equipement10 INT(20) NOT NULL,
     id_equipement11 INT(20) NOT NULL,
     id_equipement12 INT(20) NOT NULL,
-    PRIMARY key(id_louer),
-     foreign key (id_joueur) references client(id_client),
-    FOREIGN key (id_location) REFERENCES liste_location(id_location)
-);
-CREATE TABLE liste_location(
-    id_location int(20) NOT null ,
-    id_equipement1 INT(20) NOT NULL,
     PRIMARY KEY(id_location),
     FOREIGN KEY(id_equipement1) REFERENCES equipement(id)
     );
